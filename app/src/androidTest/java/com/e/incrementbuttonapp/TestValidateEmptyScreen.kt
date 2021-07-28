@@ -22,6 +22,6 @@ class TestValidateEmptyScreen {
         onView(withId(R.id.count)).check(matches(isDisplayed())).check(matches(withText("0")))
         onView(withId(R.id.btnIncrement)).check(matches(withText("Increment")))
             .check(matches(isClickable()))
-        Log.d("end", "Success2")
+        Log.d("end", "Success3")
     }
 }
