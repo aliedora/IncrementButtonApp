@@ -38,11 +38,12 @@ jobs:
           api-level: 26
           script: ./gradlew connectedCheck --stacktrace
           
-      - name: Publish Test Report
-        if: ${{ always() }}
-        uses: scacap/action-surefire-report@v1
+      - name: Upload Test Reports Folder
+        uses: actions/upload-artifact@v2
+        if: ${{ always() }} # IMPORTANT: Upload reports regardless of status
         with:
-          report_paths: '**/build/test-results/test/TEST-*.xml'
+          name: reports
+          path: app/build/test-results # path to where the xml test results are stored
           
     
         
