@@ -43,6 +43,15 @@ jobs:
           configuration-cache-enabled: true
           arguments: assembleRelease
           
+      - name: run tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 23
+          target: default
+          arch: x86
+          profile: Nexus 6
+          script: ./gradlew connectedCheck --stacktrace
+          
     
         
 
