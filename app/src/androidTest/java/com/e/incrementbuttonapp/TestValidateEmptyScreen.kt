@@ -20,7 +20,7 @@ class TestValidateEmptyScreen {
     @Test
     fun testValidateEmptyScreen() {
         onView(withId(R.id.count)).check(matches(isDisplayed())).check(matches(withText("0")))
-        onView(withId(R.id.btnIncrement)).check(matches(withText("Incremendsfdsft")))
+        onView(withId(R.id.btnIncrement)).check(matches(withText("Increment")))
             .check(matches(isClickable()))
         Log.d("end", "Success3")
     }
