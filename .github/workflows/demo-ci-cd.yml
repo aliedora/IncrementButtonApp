@@ -39,8 +39,12 @@ jobs:
           script: ./gradlew connectedCheck
       
           
-      - name: Publish Test Report
-        uses: mikepenz/action-junit-report@v2
+      - name: Test marketplace action
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        id: allure-report
         with:
-          report_paths: '**/build/test-results/test/TEST-*.xml'
-
+          allure_results: build/allure-results
+          gh_pages: gh-pages
+          allure_report: allure-report
+          allure_history: allure-history
