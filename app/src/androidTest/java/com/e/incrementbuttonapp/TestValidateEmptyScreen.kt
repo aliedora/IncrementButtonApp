@@ -6,6 +6,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import io.qameta.allure.android.runners.AllureAndroidJUnit4
+import io.qameta.allure.kotlin.Step
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -18,6 +19,7 @@ class TestValidateEmptyScreen {
     val mActivityRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
+    @Step
     fun testValidateEmptyScreen() {
         onView(withId(R.id.count)).check(matches(isDisplayed())).check(matches(withText("0")))
         onView(withId(R.id.btnIncrement)).check(matches(withText("Increment")))

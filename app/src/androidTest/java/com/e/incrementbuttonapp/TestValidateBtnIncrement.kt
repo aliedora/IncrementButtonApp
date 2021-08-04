@@ -8,6 +8,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
 import io.qameta.allure.android.runners.AllureAndroidJUnit4
+import io.qameta.allure.kotlin.Step
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -20,6 +21,7 @@ class TestValidateBtnIncrement {
     val mActivityRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
+    @Step
     fun testValidateBtnIncrement() {
         onView(withId(R.id.count)).check(matches(withText("0")))
         onView(withId(R.id.btnIncrement)).perform(click())
