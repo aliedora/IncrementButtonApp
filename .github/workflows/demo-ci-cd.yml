@@ -43,12 +43,8 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 26
-          script: ./gradlew connectedCheck  && adb pull /sdcard/allure-results
+          script: ./gradlew connectedCheck  && adb pull /sdcard/allure-results && allure generate 
             
-                  
-      - name: 📊 Step 5 - Collect Allure files and generate allure-report folder
-        run: |
-          allure generate 
       - name: 🎁 Step 6 - Publishing Allure artifact to GitHub Actions
         uses: actions/upload-artifact@v2
         with:
