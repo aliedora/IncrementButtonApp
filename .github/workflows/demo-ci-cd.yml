@@ -36,7 +36,7 @@ jobs:
         run: |
           brew update
           brew install allure
-        working-directory: https://github.com/aliedora/IncrementButtonApp
+        working-directory: .github/workflows
       
       - name: run tests
         uses: reactivecircus/android-emulator-runner@v2
