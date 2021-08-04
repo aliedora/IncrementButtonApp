@@ -36,22 +36,22 @@ jobs:
         run: |
           brew update
           brew install allure
+          brew install android-platform-tools
         working-directory: .github/workflows
-        
-      - name: 📂 Step 3 - Create a temp artifact folder named `output`
-        run: |
-          mkdir output
-      
+          
       - name: run tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 26
-          script: ./gradlew connectedCheck --alluredir=output
+          script: ./gradlew connectedCheck
           
+      - name: 📂 Step get from emu
+        run: |
+          adb pull /sdcard/allure-results
           
       - name: 📊 Step 5 - Collect Allure files and generate allure-report folder
         run: |
-          allure generate output/
+          allure generate 
       - name: 🎁 Step 6 - Publishing Allure artifact to GitHub Actions
         uses: actions/upload-artifact@v2
         with:
