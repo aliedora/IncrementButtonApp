@@ -45,11 +45,7 @@ jobs:
           api-level: 26
           script: ./gradlew connectedCheck  && adb pull /sdcard/allure-results
             
-          
-      - name: 📂 Step get from emu
-        run: |
-          adb pull /sdcard/allure-results
-          
+                  
       - name: 📊 Step 5 - Collect Allure files and generate allure-report folder
         run: |
           allure generate 
