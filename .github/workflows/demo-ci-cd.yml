@@ -43,7 +43,8 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 26
-          script: ./gradlew connectedCheck
+          script: ./gradlew connectedCheck  && adb pull /sdcard/allure-results
+            
           
       - name: 📂 Step get from emu
         run: |
