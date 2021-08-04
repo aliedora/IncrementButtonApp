@@ -39,12 +39,16 @@ jobs:
           script: ./gradlew connectedCheck
           
           
-      - name: Generate Release APK
-        run: ./gradlew assembleRelease
-        
-      - uses: actions/upload-artifact@master
+      - name: 📊 Step 5 - Collect Allure files and generate allure-report folder
+        run: |
+          allure generate output/
+      - name: 🎁 Step 6 - Publishing Allure artifact to GitHub Actions
+        uses: actions/upload-artifact@v2
         with:
-          name: mapping.txt
-          path: app/build/outputs/mapping/release/mapping.txt     
+          name: allure-report
+          path: allure-report
+
+
+
  
   
